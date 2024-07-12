@@ -14,4 +14,4 @@ A) True
 
 Questão 6)
 
-A)10
+A) 10
