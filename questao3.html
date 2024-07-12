@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média e Classificação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label for="nota1">Primeira nota:</label>
+    <input id="nota1" type="number"> <br/>
+
+    <label for="nota2">Segunda nota:</label>
+    <input id="nota2" type="number"> <br />
+
+    <label for="nota3">Terceira nota:</label>
+    <input id="nota3" type="number"> <br/>
+
+    <button onclick="calcularMedia()">Calcular Média</button>
+
+    <script type="text/javascript">
+        function calcularMedia() {
+            var nota1 = parseFloat(document.getElementById("nota1").value);
+            var nota2 = parseFloat(document.getElementById("nota2").value);
+            var nota3 = parseFloat(document.getElementById("nota3").value);
+
+            var media = (nota1 + nota2 + nota3) / 3;
+
+            alert("Nota 1: " + nota1);
+            alert("Nota 2: " + nota2);
+            alert("Nota 3: " + nota3);
+
+            alert("Media: "+ media)
+
+            if (media >= 7 && media <= 10) {
+                alert("Classificação: Aprovado");
+            } else if (media < 7 && media >= 4) {
+                alert("Classificação: Em Recuperação");
+            } else {
+                alert("Classificação: Reprovado");
+            }
+        }
+    </script>
+</body>
+</html>

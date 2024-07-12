@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Bônus Salarial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label for="salario">Salário base:</label>
+    <input id="salario" type="number"><br>
+
+    <label for="anosServico">Anos de serviço:</label>
+    <input id="anosServico" type="number"><br>
+
+    <label for="avaliacao">Avaliação de desempenho:</label>
+    <input id="avaliacao" type="text"><br>
+
+    <button onclick="calcularBonus()">Calcular Bônus</button>
+
+    <p id="resultado"></p>
+
+    <script type="text/javascript">
+        function calcularBonus() {
+            var salarioBase = parseFloat(document.getElementById("salario").value);
+            var anosServico = parseInt(document.getElementById("anosServico").value);
+            var avaliacao = document.getElementById("avaliacao").value.toLowerCase();
+
+            var bonus = 0;
+
+            if (anosServico > 10) {
+                bonus = 0.1 * salarioBase;
+            } else if (anosServico >= 5 && anosServico <= 10) {
+                bonus = 0.07 * salarioBase;
+            } else {
+                bonus = 0.05 * salarioBase;
+            }
+
+            if (avaliacao === "excelente") {
+                bonus *= 2;
+            }
+
+            var novoSalario = salarioBase + bonus;
+
+            document.getElementById("resultado").innerHTML = "Bônus: R$" + bonus.toFixed(2) + "<br>Novo salário Total: R$" + novoSalario.toFixed(2);
+        }
+    </script>
+</body>
+</html>
